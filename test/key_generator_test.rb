@@ -13,5 +13,11 @@ class KeyGeneratorTest < Minitest::Test
     assert_instance_of KeyGenerator, @key_generator
   end
 
+  def test_it_starts_with_an_empty_array_of_keys
+    assert_equal [], @key_generator.key
+  end
+
+
+
 
 end
