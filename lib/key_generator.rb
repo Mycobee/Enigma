@@ -8,7 +8,8 @@ class KeyGenerator
   def generate_key
     if @keys.count < 1
       key = rand(0..10000)
-      @keys << key
+      normalized_key = key.to_s.rjust(5, "0")
+      @keys << normalized_key
     else
       return
     end

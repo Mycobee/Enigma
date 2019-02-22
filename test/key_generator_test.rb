@@ -23,8 +23,9 @@ class KeyGeneratorTest < Minitest::Test
   end
 
   def test_it_wont_generate_more_than_one_key
-    @keys_generator.generate_key
-    @keys_generator.generate_key
+    @key_generator.generate_key
+    @key_generator.generate_key
+    assert_equal 1, @key_generator.keys.count
   end
 
 
