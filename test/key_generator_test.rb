@@ -28,6 +28,11 @@ class KeyGeneratorTest < Minitest::Test
     assert_equal 1, @key_generator.keys.count
   end
 
+  def test_the_key_is_normalized_to_five_digits
+    @key_generator.generate_key
+    assert_equal 5, @key_generator.keys[0].length
+  end
+
 
 
 
