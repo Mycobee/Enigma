@@ -24,5 +24,9 @@ class OffsetGeneratorTest < Minitest::Test
     assert_equal "02761", offset_generator2.key
   end
 
-  # binding.pry
+  def test_it_generates_todays_date_in_proper_format_by_default
+    actual = @offset_generator.date
+    expected = DateTime.now.strftime('%d.%m.%y')
+    assert_equal expected, actual
+  end
 end
