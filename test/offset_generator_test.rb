@@ -19,4 +19,10 @@ class OffsetGeneratorTest < Minitest::Test
     assert_equal 5, @offset_generator.key[0].length
   end
 
+  def test_it_can_be_fed_a_custom_key
+    offset_generator2 = OffsetGenerator.new("02761")
+    assert_equal "02761", offset_generator2.key
+  end
+
+  # binding.pry
 end

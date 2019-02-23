@@ -5,7 +5,6 @@ class OffsetGenerator
   def initialize(key = KeyGenerator.new.generate_key)
     @total_offset = total_offset
     @key = key
-
   end
 
 end
