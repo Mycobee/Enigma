@@ -19,14 +19,15 @@ class OffsetGeneratorTest < Minitest::Test
     assert_equal 5, @offset_generator.key[0].length
   end
 
-  def test_it_can_be_fed_a_custom_key
-    offset_generator2 = OffsetGenerator.new("02761")
-    assert_equal "02761", offset_generator2.key
-  end
-
   def test_it_generates_todays_date_in_proper_format_by_default
     actual = @offset_generator.date
     expected = DateTime.now.strftime('%d.%m.%y')
     assert_equal expected, actual
+  end
+
+  def test_it_can_be_fed_custom_key_and_date
+    offset_generator3 = OffsetGenerator.new("04761", "25.05.90")
+    assert_equal "04761", offset_generator3.key
+    assert_equal "25.05.90", offset_generator3.date
   end
 end
