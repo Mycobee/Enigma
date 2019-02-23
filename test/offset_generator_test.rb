@@ -8,6 +8,7 @@ require './lib/offset_generator'
 class OffsetGeneratorTest < Minitest::Test
   def setup
     @offset_generator = OffsetGenerator.new
+    @offset_generator2 = OffsetGenerator.new("04761", "25.05.90")
   end
 
   def test_it_exists
@@ -26,8 +27,11 @@ class OffsetGeneratorTest < Minitest::Test
   end
 
   def test_it_can_be_fed_custom_key_and_date
-    offset_generator3 = OffsetGenerator.new("04761", "25.05.90")
-    assert_equal "04761", offset_generator3.key
-    assert_equal "25.05.90", offset_generator3.date
+    assert_equal "04761", @offset_generator2.key
+    assert_equal "25.05.90", @offset_generator2.date
+  end
+
+  def test_it_can_generate_key_offset
+    assert_equal [4, 47, 76, 61], @offset_generator2.generate_key_offset
   end
 end
