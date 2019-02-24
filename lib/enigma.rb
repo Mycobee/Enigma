@@ -1,10 +1,13 @@
 class Enigma
+
   attr_reader :message,
-              :total_offset
+              :total_offset,
+              :encryption_chars
 
   def initialize(message)
     @message = message
     @total_offset = total_offset
+    @encryption_chars = encryption_chars
   end
 
   def generate_offset
@@ -42,7 +45,13 @@ class Enigma
      encrypted[0]
   end
 
-  def encrypt
+  def generate_encryption_chars
+    msg_char_count = @message.chars.count
+    cryptokey_count = (msg_char_count.to_f / total_offset.count).ceil
+    keys = Array.new(cryptokey_count, total_offset).flatten
+    shaved_keys = keys[0..(msg_char_count - 1)]
+    values = @message.chars
+    @encryption_chars = values.zip(shaved_keys).flatten
   end
 
 end

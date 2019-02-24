@@ -40,6 +40,15 @@ class EnigmaTest < Minitest::Test
     assert_equal "k", @enigma2.encrypt_character("h", 3)
   end
 
+  def test_encryption_chars_method
+    @enigma2.generate_encryption_chars
+    expected = ["h", 3, "e", 27, "l", 73, "l", 20,
+                "o", 3, " ", 27, "w", 73, "o", 20,
+               "r", 3, "l", 27, "d", 73]
+    actual = @enigma2.encryption_chars
+    assert_equal expected, actual
+  end
+
 
   def test_encrypt_method
     skip
