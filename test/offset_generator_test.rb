@@ -45,6 +45,11 @@ class OffsetGeneratorTest < Minitest::Test
     assert_equal [12, 48, 76, 61], @offset_generator2.generate_total_offset
   end
 
-  
+  def test_total_offset_attribute
+    @offset_generator2.generate_key_offset
+    @offset_generator2.generate_date_offset
+    @offset_generator2.generate_total_offset
+    assert_equal [12, 48, 76, 61], @offset_generator2.total_offset
+  end
 
 end
