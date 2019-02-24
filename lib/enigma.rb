@@ -15,4 +15,12 @@ class Enigma
       @total_offset = offset.total_offset
   end
 
+  def generate_predetermined_offset(key, date)
+    offset = OffsetGenerator.new([key], date)
+    offset.generate_key_offset
+    offset.generate_date_offset
+    offset.generate_total_offset
+    @total_offset = offset.total_offset
+  end
+
 end

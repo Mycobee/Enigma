@@ -28,8 +28,10 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  # def test_generate_offset_with_predetermined_key_and_date
-  #
-  # end
+  def test_generate_offset_with_predetermined_key_and_date
+   @enigma.generate_predetermined_offset("04761", "25.05.90")
+   actual = [12, 48, 76, 61]
+   expected = @enigma.total_offset
+  end
 
 end
