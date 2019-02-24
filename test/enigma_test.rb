@@ -55,4 +55,10 @@ class EnigmaTest < Minitest::Test
     assert_equal "keder ohulw", @enigma2.encrypt
   end
 
+  def test_cypher_text_attribute
+    @enigma2.generate_encryption_chars
+    @enigma2.encrypt
+    assert_equal "keder ohulw", @enigma2.cypher_text
+  end
+
 end

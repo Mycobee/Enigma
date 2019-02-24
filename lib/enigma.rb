@@ -2,12 +2,14 @@ class Enigma
 
   attr_reader :message,
               :total_offset,
-              :encryption_chars
+              :encryption_chars,
+              :cypher_text
 
   def initialize(message)
     @message = message
     @total_offset = total_offset
     @encryption_chars = encryption_chars
+    @cypher_text = cypher_text
   end
 
   def generate_offset
@@ -74,7 +76,8 @@ class Enigma
             end
            end
          end
-      encrypted.join
+      @cypher_text = encrypted.join
+      # binding.pry
   end
 
 end
