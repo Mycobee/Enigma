@@ -10,6 +10,8 @@ class EnigmaTest < Minitest::Test
 
   def setup
     @enigma = Enigma.new("Check out this message")
+    @enigma2 = Enigma.new("hello world")
+    @enigma2.generate_predetermined_offset("02715", "04.08.95")
   end
 
   def test_it_exists
@@ -32,6 +34,16 @@ class EnigmaTest < Minitest::Test
    @enigma.generate_predetermined_offset("04761", "25.05.90")
    actual = [12, 48, 76, 61]
    expected = @enigma.total_offset
+  end
+
+  def test_encrypt_character_method
+    assert_equal "k", @enigma2.encrypt_character("h", 3)
+  end
+
+
+  def test_encrypt_method
+    skip
+    assert_equal "keder ohulw", @enigma2.encrypt
   end
 
 end
