@@ -38,4 +38,13 @@ class OffsetGeneratorTest < Minitest::Test
   def test_it_can_generate_a_date_offset
     assert_equal [8, 1, 0, 0], @offset_generator2.generate_date_offset
   end
+
+  def test_it_can_generate_total_offset_keys_array
+    @offset_generator2.generate_key_offset
+    @offset_generator2.generate_date_offset
+    assert_equal [12, 48, 76, 61], @offset_generator2.generate_total_offset
+  end
+
+  
+
 end
