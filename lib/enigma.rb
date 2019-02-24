@@ -51,7 +51,30 @@ class Enigma
     keys = Array.new(cryptokey_count, total_offset).flatten
     shaved_keys = keys[0..(msg_char_count - 1)]
     values = @message.chars
-    @encryption_chars = values.zip(shaved_keys).flatten
+    @encryption_chars = values.zip(shaved_keys)
+  end
+
+  def encrypt(crypto_set = @encryption_chars)
+    char_set =
+    ["a", "b", "c", "d", "e", "f", "g", "h",
+      "i", "j", "k", "l", "m", "n", "o", "p",
+      "q", "r", "s", "t", "u", "v", "w", "x",
+       "y", "z", " "]
+
+       encrypted = []
+
+      crypto_set.each do |set|
+        char_set.each do |letter|
+          if letter == set[0].downcase
+              index_value = char_set.index(letter)
+              char_set.rotate!(set[1])
+              shifted_character = char_set[index_value]
+              encrypted << shifted_character
+              break
+            end
+           end
+         end
+      encrypted.join
   end
 
 end
