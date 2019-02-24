@@ -22,4 +22,14 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, actual
   end
 
+  def test_generate_offset_adds_to_total_offset_attribute
+    actual = @enigma.generate_offset
+    expected = @enigma.total_offset
+    assert_equal expected, actual
+  end
+
+  # def test_generate_offset_with_predetermined_key_and_date
+  #
+  # end
+
 end
