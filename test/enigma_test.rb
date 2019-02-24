@@ -9,8 +9,14 @@ require './lib/enigma'
 class EnigmaTest < Minitest::Test
 
   def test_it_exists
-    enigma = Enigma.new
+    enigma = Enigma.new("message")
     assert_instance_of Enigma, enigma
+  end
+
+  def test_message_atribute
+    enigma = Enigma.new("Check out this message")
+    expected = "Check out this message"
+    actual = enigma.message
   end
 
 end
