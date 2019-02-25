@@ -61,4 +61,13 @@ class EnigmaTest < Minitest::Test
     assert_equal "keder ohulw", @enigma2.cypher_text
   end
 
+  def test_decrypt_method
+    @enigma2.generate_encryption_chars
+    @enigma2.encrypt
+    expected = "hello world"
+    binding.pry
+    actual = @enigma2.decrypt("keder ohulw", "02715", "04.08.95")
+    assert_equal
+  end
+
 end
