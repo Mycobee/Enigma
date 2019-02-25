@@ -69,16 +69,26 @@ class Enigma
   end
 
 
-
-  def decrypt(cypher_text, key, date)
-    skip
+  def decrypt(crypto_set = @encryption_chars)
     char_set =
     ["a", "b", "c", "d", "e", "f", "g", "h",
       "i", "j", "k", "l", "m", "n", "o", "p",
       "q", "r", "s", "t", "u", "v", "w", "x",
        "y", "z", " "]
 
+          decrypted = []
 
-  end
-
+         crypto_set.each do |set|
+           char_set.each do |letter|
+             if letter == set[0].downcase
+                 index_value = char_set.index(letter)
+                 char_set.rotate!(-(set[1]))
+                 shifted_character = char_set[index_value]
+                 decrypted << shifted_character
+                 break
+              end
+            end
+          end
+         @cypher_text = decrypted.join
+     end
 end
