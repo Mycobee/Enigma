@@ -37,6 +37,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_encrypt_character_method
+    skip
     assert_equal "k", @enigma2.encrypt_character("h", 3)
   end
 
@@ -55,4 +56,16 @@ class EnigmaTest < Minitest::Test
     assert_equal "keder ohulw", @enigma2.encrypt
   end
 
+  def test_cypher_text_attribute
+    @enigma2.generate_encryption_chars
+    @enigma2.encrypt
+    assert_equal "keder ohulw", @enigma2.cypher_text
+  end
+
+  def test_decrypt_method
+    enigma3 = Enigma.new("keder ohulw")
+    enigma3.generate_predetermined_offset("02715", "04.08.95")
+    enigma3.generate_encryption_chars
+    enigma3.decrypt
+  end
 end

@@ -2,12 +2,18 @@ class Enigma
 
   attr_reader :message,
               :total_offset,
-              :encryption_chars
+              :encryption_chars,
+              :cypher_text,
+              :key,
+              :date
 
   def initialize(message)
     @message = message
     @total_offset = total_offset
     @encryption_chars = encryption_chars
+    @cypher_text = cypher_text
+    @key = key
+    @date = date
   end
 
   def generate_offset
@@ -15,6 +21,8 @@ class Enigma
       offset.generate_key_offset
       offset.generate_date_offset
       offset.generate_total_offset
+      @key = offset.key
+      @date = offset.date
       @total_offset = offset.total_offset
   end
 
@@ -23,26 +31,9 @@ class Enigma
     offset.generate_key_offset
     offset.generate_date_offset
     offset.generate_total_offset
+    @key = offset.key
+    @date = offset.date
     @total_offset = offset.total_offset
-  end
-
-  def encrypt_character(char, shift)
-    char_set =
-    ["a", "b", "c", "d", "e", "f", "g", "h",
-      "i", "j", "k", "l", "m", "n", "o", "p",
-      "q", "r", "s", "t", "u", "v", "w", "x",
-       "y", "z", " "]
-    encrypted = []
-
-     char_set.each do |letter|
-         if letter == char.downcase
-           index_value = char_set.index(letter)
-           char_set.rotate!(shift)
-           shifted_character = char_set[index_value]
-           encrypted << shifted_character
-         end
-     end
-     encrypted[0]
   end
 
   def generate_encryption_chars
@@ -74,7 +65,30 @@ class Enigma
             end
            end
          end
-      encrypted.join
+      @cypher_text = encrypted.join
   end
 
+
+  def decrypt(crypto_set = @encryption_chars)
+    char_set =
+    ["a", "b", "c", "d", "e", "f", "g", "h",
+      "i", "j", "k", "l", "m", "n", "o", "p",
+      "q", "r", "s", "t", "u", "v", "w", "x",
+       "y", "z", " "]
+
+          decrypted = []
+
+         crypto_set.each do |set|
+           char_set.each do |letter|
+             if letter == set[0].downcase
+                 index_value = char_set.index(letter)
+                 char_set.rotate!(-(set[1]))
+                 shifted_character = char_set[index_value]
+                 decrypted << shifted_character
+                 break
+              end
+            end
+          end
+         @cypher_text = decrypted.join
+     end
 end
