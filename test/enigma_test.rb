@@ -68,15 +68,4 @@ class EnigmaTest < Minitest::Test
     enigma3.generate_encryption_chars
     enigma3.decrypt
   end
-
-  def test_
-    skip
-    @enigma2.generate_encryption_chars
-    @enigma2.encrypt
-    expected = "hello world"
-    binding.pry
-    actual = @enigma2.decrypt("keder ohulw", "02715", "04.08.95")
-    assert_equal
-  end
-
 end
