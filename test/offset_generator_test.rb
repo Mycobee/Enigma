@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'pry'
+require './test/test_helper'
 require './lib/key_generator'
 require './lib/date_generator'
 require './lib/offset_generator'
@@ -8,7 +6,7 @@ require './lib/offset_generator'
 class OffsetGeneratorTest < Minitest::Test
   def setup
     @offset_generator = OffsetGenerator.new
-    @offset_generator2 = OffsetGenerator.new("04761", "25.05.90")
+    @offset_generator2 = OffsetGenerator.new(["04761"], "25.05.90")
   end
 
   def test_it_exists
@@ -27,7 +25,7 @@ class OffsetGeneratorTest < Minitest::Test
   end
 
   def test_it_can_be_fed_custom_key_and_date
-    assert_equal "04761", @offset_generator2.key
+    assert_equal "04761", @offset_generator2.key[0]
     assert_equal "25.05.90", @offset_generator2.date
   end
 
