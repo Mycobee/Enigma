@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'pry'
+require './test/test_helper'
 require './lib/key_generator'
 require './lib/date_generator'
 require './lib/offset_generator'
@@ -34,11 +32,7 @@ class EnigmaTest < Minitest::Test
    @enigma.generate_predetermined_offset("04761", "25.05.90")
    actual = [12, 48, 76, 61]
    expected = @enigma.total_offset
-  end
-
-  def test_encrypt_character_method
-    skip
-    assert_equal "k", @enigma2.encrypt_character("h", 3)
+   assert_equal expected, actual
   end
 
   def test_encryption_chars_method

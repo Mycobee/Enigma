@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'pry'
+require './test/test_helper'
 require './lib/key_generator'
 require './lib/date_generator'
 
