@@ -22,7 +22,6 @@ class OffsetGenerator
   def generate_date_offset
     date_num =
     @date[0] + @date[1] + @date[3] + @date[4] + @date[6] + @date[7]
-
     square_date = date_num.to_i ** 2
     date_characters = square_date.to_s.slice(-4..-1)
     @date_offset = date_characters.chars.map {|char| char.to_i}
@@ -32,5 +31,4 @@ class OffsetGenerator
     offset_keys = @key_offset.zip(@date_offset)
     @total_offset = offset_keys.map {|key| key.sum}
   end
-
 end
