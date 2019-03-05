@@ -14,14 +14,14 @@ To encrypt, you must run the encrypt.rb runner file found in the lib/ directory.
 
 Required arguements:
 
-<arg_1> is the file path of existing text file you wish to encrypt
-<arg_2> is the file name and address for new file that encrypt will generate
+`<arg_1>` is the file path of existing text file you wish to encrypt
+`<arg_2>` is the file name and address for new file that encrypt will generate
 
 Optional arguements:
-<arg_3> can be a 5 digit number that is fed in as a predetermined encryption key
-<arg_4> can be a date in DD.MM.YY format
+`<arg_3>` can be a 5 digit number that is fed in as a predetermined encryption key
+`<arg_4>` can be a date in DD.MM.YY format
 
-If <arg_3> and <arg_4> are not provided, the program will generate a random key and a current date. 
+If `<arg_3>` and `<arg_4>` are not provided, the program will generate a random key and a current date. 
 
 EXAMPLES
 
