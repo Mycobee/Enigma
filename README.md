@@ -14,14 +14,18 @@ To encrypt, you must run the encrypt.rb runner file found in the /lib directory.
 
 Required arguements:
 
-`<arg_1>` is the file path of existing text file you wish to encrypt
-`<arg_2>` is the file name and address for new file that encrypt will generate
+`<arg_1>` is the file path of existing text file you wish to encrypt.
+
+`<arg_2>` is the file name and address for new file that encrypt will generate.
+
 
 Optional arguements:
-`<arg_3>` can be a 5 digit number that is fed in as a predetermined encryption key
-`<arg_4>` can be a date in DD.MM.YY format
 
-If `<arg_3>` and `<arg_4>` are not provided, the program will generate a random key and a current date. 
+`<arg_3>` can be a 5 digit number that is fed in as a predetermined encryption ke.y
+
+`<arg_4>` can be a date in DD.MM.YY format.
+
+If `<arg_3>` and `<arg_4>` are not provided, the program will generate a random key with the current date. 
 
 EXAMPLES
 
@@ -45,6 +49,9 @@ To decrypt, you must run the decrypt.rb runner file found in the /lib directory.
 Required arguements:
 
 `<arg_1>` is the file path of existing cyphertext file you wish to decrypt.
+
 `<arg_2>` is the file name and address for new file that decrypt will generate.
+
 `<arg_3>` is the 5 digit number that was used as the encryption key.
+
 `<arg_4>` is the encrypted message's transmission date in DD.MM.YY format.
